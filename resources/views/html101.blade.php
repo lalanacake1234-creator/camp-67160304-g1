@@ -1,11 +1,12 @@
 @extends('template.default')
 @section('title', 'Workshop FROM')
+@section('header', 'Workshop #HTML - FORM')
 @section('content')
+<form method="POST" action="{{ url('/submit') }}" enctype="multipart/form-data">
+    @csrf
         <div class="row justify-content-center mt-5">
             <div class="col-md-8 col-lg-7">
-        <h1>Workshop #HTML - FORM</h1>
-
-        <form class="mt-4">
+        <h1></h1>
 
             <!-- ชื่อ -->
             <div class="row mt-3">
@@ -13,7 +14,7 @@
                     <label for="fname">ชื่อ</label>
                 </div>
                 <div class="col-md-7">
-                    <input id="fname" class="form-control" type="text">
+                    <input id="fname" name="fname" class="form-control" type="text">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -29,7 +30,7 @@
                     <label for="lname">สกุล</label>
                 </div>
                 <div class="col-md-7">
-                    <input id="lname" class="form-control" type="text">
+                    <input id="lname" name="lname" class="form-control" type="text">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -45,7 +46,7 @@
                     <label for="dob">วัน/เดือน/ปีเกิด</label>
                 </div>
                 <div class="col-md-7">
-                    <input id="dob" class="form-control" type="date">
+                    <input id="dob" name="dob" class="form-control" type="date">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -61,7 +62,7 @@
                     <label for="age">อายุ</label>
                 </div>
                 <div class="col-md-7">
-                    <input id="age" class="form-control" type="number" min="1">
+                    <input id="age" name="age" class="form-control" type="number">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -76,11 +77,11 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="male">
+                        <input type="radio" name="gender" value="ชาย" id="male">
                         <label class="form-check-label" for="male">ชาย</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="female">
+                        <input type="radio" name="gender" value="หญิง" id="female">
                         <label class="form-check-label" for="female">หญิง</label>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                     <label for="photo">รูป</label>
                 </div>
                 <div class="col-md-7">
-                    <input id="photo" class="form-control" type="file">
+                    <input id="photo" name="photo" class="form-control" type="file">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -108,7 +109,7 @@
                     <label for="address">ที่อยู่</label>
                 </div>
                 <div class="col-md-7">
-                    <textarea id="address" class="form-control" rows="3"></textarea>
+                    <textarea id="address" name="address" class="form-control"></textarea>
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -124,7 +125,7 @@
                     <label for="color">สีที่ชอบ</label>
                 </div>
                 <div class="col-md-7">
-                    <select id="color" class="form-select">
+                    <select id="color" name="color" class="form-select">
                         <option> - </option>
                         <option>แดง</option>
                         <option>น้ำเงิน</option>
@@ -148,19 +149,19 @@
                 </div>
                 <div class="col-md-7">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="music" id="Pop">
+                        <input type="radio" name="music" value="Pop" id="Pop">
                         <label class="form-check-label" for="Pop">Pop</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="music" id="Jazz">
+                        <input type="radio" name="music" value="Jazz" id="Jazz">
                         <label class="form-check-label" for="Jazz">Jazz</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="music" id="Rock">
+                        <input type="radio" name="music" value="Rock" id="Rock">
                         <label class="form-check-label" for="Rock">Rock</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="music" id="other">
+                        <input type="radio" name="music" value="อื่นๆ" id="other">
                         <label class="form-check-label" for="other">อื่นๆ</label>
                     </div>
                 </div>
@@ -171,7 +172,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-7">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="agree">
+                        <input class="form-check-input" type="checkbox" id="agree" name="agree" value="yes">
                         <label class="form-check-label" for="agree">
                             ยินยอมให้เก็บข้อมูล
                         </label>
@@ -186,14 +187,14 @@
             <div class="row mt-4">
                 <div class="col-md-3"></div>
                 <div class="col-md-2">
-                    <button class="btn btn-success"onclick="clickMe()" type="button">Submit</button>
+                    <button class="btn btn-success" onclick="clickMe()" type="submit">Submit</button>
                 </div>
                 <div class="col">
                     <button class="btn btn-light" type="reset">Reset</button>
                 </div>
             </div>
 
-        </form>
+
         </div>
     </div>
 

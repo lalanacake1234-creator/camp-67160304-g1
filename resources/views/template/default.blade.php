@@ -20,11 +20,10 @@
     @stack('styles')
 </head>
 <body>
-    <div class="container mt-4 pb-5">
-
-        <h1>File Default</h1>
-        @yield('content')
-    </div>
+    <div class="container mt-4">
+            <h1 class="text-center">@yield('header')</h1>
+            @yield('content')
+        </div>
     @stack('scripts')
 </body>
 </html>
