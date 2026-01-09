@@ -14,3 +14,7 @@ Route::get('/mycontroller', [App\Http\Controllers\MyController::class, 'index'])
 Route::get('/calculate', [App\Http\Controllers\MyController::class, 'inFo']);
 Route::post('/calculate', [App\Http\Controllers\MyController::class, 'calculate']);
 Route::post('/submit', [App\Http\Controllers\MyController::class, 'saveData']);
+
+Route::resource('/flights', App\Http\Controllers\FlightsController::class);
+
+Route::resource('/pokedex', App\Http\Controllers\PokedexController::class);
